@@ -16,7 +16,6 @@ RUN mkdir /var/jenkins_home; \
     chown ${uid}:${gid} /var/jenkins_home; \
     useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
-
 RUN mkdir /usr/share/jenkins; \
     wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war \
     --output-document=/usr/share/jenkins/jenkins.war
