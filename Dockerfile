@@ -1,6 +1,8 @@
 FROM archlinux/base
 
-RUN pacman -Sy docker docker-compose jre11-openjdk wget --noconfirm; \
+RUN pacman -Sy docker docker-compose java-runtime-common jre8-openjdk  jre8-openjdk-headless  libfontenc \
+            libxmu  libxt nspr  nss  ttf-dejavu  xdg-utils wget \
+            xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm; \
     pacman -Scc --noconfirm
 
 RUN mkdir /var/jenkins; \
@@ -15,4 +17,4 @@ RUN wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war \
 CMD java -jar /var/jenkins/jenkins.war --httpPort=8090
 
 EXPOSE 8090/tcp
-VOLUME [ "/data" ]
+VOLUME [ "/var/jenkins" ]
