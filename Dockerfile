@@ -5,9 +5,9 @@ RUN pacman -Sy docker docker-compose java-runtime-common jre8-openjdk  jre8-open
             xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm; \
     pacman -Scc --noconfirm
 
-RUN mkdir /var/jenkins; \
-    chown 1000:1000 /var/jenkins
-ENV JENKINS_HOME=/var/jenkins
+RUN mkdir /var/jenkins_home; \
+    chown 1000:1000 /var/jenkins_home
+ENV JENKINS_HOME=/var/jenkins_home
 
 USER 1000
 
