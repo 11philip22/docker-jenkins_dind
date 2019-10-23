@@ -1,7 +1,7 @@
 FROM archlinux/base
 
 RUN pacman -Sy docker docker-compose java-runtime-common jre8-openjdk  jre8-openjdk-headless  libfontenc \
-           libxmu  libxt nspr  nss  ttf-dejavu  xdg-utils wget \
+           libxmu  libxt nspr  nss  ttf-dejavu  xdg-utils wget git \
            xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm; \
     pacman -Scc --noconfirm
 
