@@ -1,7 +1,7 @@
 FROM archlinux/base
 
 RUN pacman -Sy docker docker-compose jre11-openjdk wget --noconfirm; \
-    pacman -Scc --noconfirm;
+    pacman -Scc --noconfirm
 
 RUN mkdir /var/jenkins
 RUN chown 1000:1000 /var/jenkins
