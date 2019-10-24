@@ -18,7 +18,8 @@ ENV JENKINS_HOME $JENKINS_HOME
 RUN mkdir /var/jenkins_home; \
     groupadd -g ${gid} ${group}; \
     useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}; \
-    chown ${uid}:${gid} /var/jenkins_home
+    chown ${uid}:${gid} /var/jenkins_home; \
+    usermod -a -G docker jenkins
 
 RUN mkdir /usr/share/jenkins; \
     wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war \
