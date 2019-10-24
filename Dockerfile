@@ -10,6 +10,7 @@ ARG JENKINS_HOME=/var/jenkins_home
 RUN pacman -Sy docker docker-compose java-runtime-common jre8-openjdk libfontenc \
            libxmu  libxt nspr  nss  ttf-dejavu  xdg-utils jre8-openjdk-headless \
            xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm
+
 # Additional programs
 RUN pacman -S wget git openssh --noconfirm; \    
     pacman -Scc --noconfirm
@@ -19,7 +20,7 @@ RUN mkdir /var/jenkins_home; \
     groupadd -g ${gid} ${group}; \
     useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}; \
     chown ${uid}:${gid} /var/jenkins_home; \
-    usermod -a -G docker jenkins
+    usermod -a -G docker ${user}
 
 RUN mkdir /usr/share/jenkins; \
     wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war \
