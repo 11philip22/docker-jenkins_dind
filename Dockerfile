@@ -19,7 +19,7 @@ RUN pacman -Sy java-runtime-common jre8-openjdk libfontenc \
 # Additional programs
 RUN pacman -S wget git openssh docker docker-compose --noconfirm        
 # Dependancies for arch image build job
-RUN pacman -S arch-install-scripts
+RUN pacman -S arch-install-scripts --noconfirm     
 # Remove pacman cache and database
 RUN pacman -Scc --noconfirm
 
