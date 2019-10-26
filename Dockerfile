@@ -27,7 +27,7 @@ RUN pacman -S arch-install-scripts; \
 
 # Download Jenkins war file
 RUN mkdir /usr/share/jenkins; \
-    wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war \
+    wget -q http://mirrors.jenkins.io/war-stable/latest/jenkins.war \
     --output-document=/usr/share/jenkins/jenkins.war
 
 USER ${user}
