@@ -15,15 +15,13 @@ ENV JENKINS_HOME ${jenkins_home}
 # Jenkins dependancies
 RUN pacman -Sy java-runtime-common jre8-openjdk libfontenc \
            libxmu  libxt nspr  nss  ttf-dejavu  xdg-utils jre8-openjdk-headless \
-           xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm
-
+           xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm; \
 # Additional programs
-RUN pacman -S wget git openssh docker docker-compose --noconfirm    
-    
+RUN pacman -S wget git openssh docker docker-compose --noconfirm        
 # Dependancies for arch image build job
-RUN pacman -S arch-install-scripts; \
-    # Remove pacman cache and database
-    pacman -Scc --noconfirm
+RUN pacman -S arch-install-scripts
+# Remove pacman cache and database
+RUN pacman -Scc --noconfirm
 
 # Download Jenkins war file
 RUN mkdir /usr/share/jenkins; \
