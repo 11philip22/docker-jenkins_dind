@@ -18,7 +18,10 @@ RUN pacman -Sy java-runtime-common jre8-openjdk libfontenc \
            xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm
 
 # Additional programs
-RUN pacman -S wget git openssh docker docker-compose --noconfirm; \    
+RUN pacman -S wget git openssh docker docker-compose --noconfirm    
+    
+# Dependancies for arch image build job
+RUN pacman -S arch-install-scripts; \
     # Remove pacman cache and database
     pacman -Scc --noconfirm
 
