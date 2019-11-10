@@ -17,7 +17,7 @@ RUN pacman -Sy java-runtime-common jre8-openjdk libfontenc \
            libxmu  libxt nspr  nss  ttf-dejavu  xdg-utils jre8-openjdk-headless \
            xorg-fonts-encodings  xorg-mkfontscale  xorg-xset --noconfirm
 # Additional programs
-RUN pacman -S wget git openssh docker docker-compose --noconfirm        
+RUN pacman -S wget git openssh dos2unix docker docker-compose --noconfirm        
 # Remove pacman cache and database
 RUN pacman -Scc --noconfirm
 
