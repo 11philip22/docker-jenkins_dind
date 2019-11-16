@@ -10,7 +10,7 @@ RUN pacman -Sy docker docker-compose --noconfirm
 # Remove pacman cache and database
 RUN pacman -Scc --noconfirm
 # add jenkins user to docker group
-RUN usermod -a --gid ${gid} ${user}
+RUN usermod --gid ${gid} ${user}
 
 USER ${user}
 
