@@ -1,6 +1,6 @@
 FROM philipwold/jenkins
 
-ARG user=jenkins
+ARG user=user
 # your docker group gid
 ARG gid=976
 
